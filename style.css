@@ -1,0 +1,133 @@
+/* =============================
+   RESET & BASE
+   ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2rem;
+    font-family: 'Raleway', Arial, sans-serif;
+    background-color: rgb(181, 232, 255);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+}
+
+p {
+    color: rgb(107, 114, 128);
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+/* =============================
+   FLOATING PETALS
+   ============================= */
+.petal {
+    position: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 100%;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 10;
+    animation: falling linear infinite;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0.9;
+    }
+    30% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(200vh) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+/* =============================
+   POLAROID GALLERY
+   ============================= */
+.polaroid {
+    background: transparent;
+    padding: 15px 15px 50px 15px;
+    box-shadow: 4px 4px 8px 8px rgba(0,0,0,0.2);
+    transform: rotate(4deg);
+    transition: transform 0.3s;
+    max-width: 330px;
+    max-height: 330px;
+    border-radius: 6px;
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(-4deg);
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 20;
+}
+
+.polaroid-caption {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Dancing Script', cursive;
+    color: #333;
+}
+
+/* =============================
+   MESSAGE CARD
+   ============================= */
+.message-card {
+    background: transparent;
+    backdrop-filter: blur(5px);
+    border-radius: 25px;
+    box-shadow: 4px 4px 8px 8px rgba(0,0,0,0.2);
+    padding: 1.5rem;
+}
+
+/* =============================
+   MESSAGE MODAL
+   ============================= */
+.message-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =============================
+   CUSTOM CARD (LEGADO)
+   ============================= */
+.card {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 16px;
+    border: 3px solid lightgray;
+    border-radius: 16px;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
