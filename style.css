@@ -10,18 +10,23 @@
 body {
     padding: 2rem;
     font-family: 'Raleway', Arial, sans-serif;
-    background-color: rgb(181, 232, 255);
     overflow-x: hidden;
+    background-image: url("./src/fire.png");
+    
 }
+
 
 h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
     font-size: 19px;
+    color: white;
 }
 
+
 p {
-    color: rgb(107, 114, 128);
-    font-size: 15px;
+    color: white;
+    font-size: 19px;
+    font-weight: 500;
     margin-bottom: 10px;
     margin-top: 5px;
 }
@@ -64,7 +69,7 @@ p {
 .polaroid {
     background: transparent;
     padding: 15px 15px 50px 15px;
-    box-shadow: 4px 4px 8px 8px rgba(0,0,0,0.2);
+    box-shadow: 4px 4px 8px rgba(120,240,214,2);
     transform: rotate(4deg);
     transition: transform 0.3s;
     max-width: 330px;
@@ -85,30 +90,33 @@ p {
     text-align: center;
     margin-top: 10px;
     font-family: 'Dancing Script', cursive;
-    color: #333;
+    color: white;
+    font-height: 350;
 }
 
 /* =============================
    MESSAGE CARD
    ============================= */
 .message-card {
-    background: transparent;
-    backdrop-filter: blur(5px);
-    border-radius: 25px;
-    box-shadow: 4px 4px 8px 8px rgba(0,0,0,0.2);
-    padding: 1.5rem;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
 /* =============================
    MESSAGE MODAL
    ============================= */
-.message-box {
+ .message-box {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
+    bottom: 20px;
+    right: 20px;
+
+    z-index: 9999;
+
+    width: 320px;
+    max-width: 85%;
+
     animation: fadeIn 0.5s;
 }
 
