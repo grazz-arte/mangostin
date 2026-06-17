@@ -3,7 +3,9 @@
   "short_name": "Mangostin",
   "description": "Cada dia mais, cada minuto mais, cada segundo mais ❤️",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#000000",
   "theme_color": "#78f0d6",
   "icons": [
