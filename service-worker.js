@@ -7,6 +7,7 @@ const urlsToCache = [
     "./icon-192.png",
     "./icon-512.png",
     "./Guns N' Roses - November Rain.mp3",
+    "./manifest.json",
 
     "./src/foto1.jpg",
     "./src/foto2.jpg",
