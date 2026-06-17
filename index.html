@@ -381,6 +381,26 @@ const seconds = Math.floor(
         setInterval(updateCounter, 1000);
         createPetals(100);
     </script>
+<script>
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+            .register("./service-worker.js")
+
+            .then(() => {
+                console.log("Mangostin PWA carregado ❤️");
+            })
+
+            .catch(error => {
+                console.log(error);
+            });
+
+    });
+
+}
+</script>
 </body>
 </html>
 <!-- Música adicionada com sucesso -->
