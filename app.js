@@ -63,19 +63,26 @@ document.getElementById("btn").addEventListener("click", async () => {
 
 status.innerText = "💾 Salvando token...";
 
-await fetch("https://func-mangostin-g2etanh5csc7brbp.brazilsouth-01.azurewebsites.net/api/registertoken", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        token: token
-    })
-});
+const response = await fetch(
+    "https://func-mangostin-g2etanh5csc7brbp.brazilsouth-01.azurewebsites.net/api/registertoken",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            token: token
+        })
+    }
+);
 
-status.innerText = "✅ Token registrado com sucesso!";
+const result = await response.json();
 
-alert("Dispositivo registrado com sucesso ❤️");
+console.log(result);
+
+status.innerText = result.message || "✅ Token registrado com sucesso!";
+
+alert(JSON.stringify(result, null, 2));
 
     } catch (err) {
 
