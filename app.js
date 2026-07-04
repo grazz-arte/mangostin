@@ -59,15 +59,23 @@ document.getElementById("btn").addEventListener("click", async () => {
                     registration
             });
 
-        console.log("TOKEN FCM:");
-        console.log(token);
+        console.log("TOKEN FCM:", token);
 
-        status.innerText =
-            "✅ Token gerado!";
+status.innerText = "💾 Salvando token...";
 
-        alert(
-            "TOKEN GERADO:\n\n" + token
-        );
+await fetch("https://func-mangostin-g2etanh5csc7brbp.brazilsouth-01.azurewebsites.net/api/registertoken", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        token: token
+    })
+});
+
+status.innerText = "✅ Token registrado com sucesso!";
+
+alert("Dispositivo registrado com sucesso ❤️");
 
     } catch (err) {
 
