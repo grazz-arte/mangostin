@@ -31,12 +31,19 @@ document.getElementById("btn").addEventListener("click", async () => {
 
     alert("ANTES DO TOKEN");
 
+    try {
     const token = await messaging.getToken({
         vapidKey: "BFEUL8kBM5TZhjMaT5eJXmEoiTs4uBBeiphiHKjRGrwD7ocV6RCXsWBjE15Te6sv4OdMOh2WOG79rbpqtN62UeI",
         serviceWorkerRegistration: registration
     });
 
-    alert("TOKEN OK");
+    alert("TOKEN:\n\n" + token);
+    console.log(token);
+
+} catch (e) {
+    alert("ERRO TOKEN:\n\n" + e.message);
+    console.error(e);
+}
 
     console.log(token);
 });
