@@ -1,13 +1,21 @@
 alert("APP INICIOU");
 
-const btn = document.getElementById("btn");
-const status = document.getElementById("status");
+const firebaseConfig = {
+    apiKey: "...",
+    authDomain: "...",
+    projectId: "...",
+    storageBucket: "...",
+    messagingSenderId: "...",
+    appId: "...",
+    measurementId: "..."
+};
 
-alert(btn ? "Botão encontrado" : "Botão NÃO encontrado");
-alert(status ? "Status encontrado" : "Status NÃO encontrado");
+alert("ANTES DO INITIALIZE");
 
-if (btn) {
-    btn.onclick = function () {
-        alert("BOTÃO CLICADO ❤️");
-    };
-}
+firebase.initializeApp(firebaseConfig);
+
+alert("DEPOIS DO INITIALIZE");
+
+const messaging = firebase.messaging();
+
+alert("FIREBASE OK");
