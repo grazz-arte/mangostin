@@ -1,4 +1,4 @@
-alert("APP INICIOU");
+alert("APP INICIOU PRAISE BE");
 
 const status = document.getElementById("status");
 
