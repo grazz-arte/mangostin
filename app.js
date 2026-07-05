@@ -40,13 +40,15 @@ document.getElementById("btn").addEventListener("click", async () => {
     alert("TOKEN:\n\n" + token);
     console.log(token);
 
-} catch (e) {
-    alert("ERRO TOKEN:\n\n" + e.message);
-    console.error(e);
-}
+} catch (err) {
 
-    console.log(token);
-});
+    console.error("ERRO COMPLETO:", err);
+
+    alert(
+        JSON.stringify(err, null, 2)
+    );
+
+}
 
 alert("DEPOIS DO INITIALIZE");
 
