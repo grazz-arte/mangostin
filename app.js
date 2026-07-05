@@ -1,10 +1,13 @@
-alert("APP INICIOU PRAISE BE");
+alert("APP INICIOU");
 
+const btn = document.getElementById("btn");
 const status = document.getElementById("status");
 
-if (status) {
-    status.innerText = "✅ app.js carregou!";
-    alert("STATUS ENCONTRADO");
-} else {
-    alert("STATUS NÃO ENCONTRADO");
+alert(btn ? "Botão encontrado" : "Botão NÃO encontrado");
+alert(status ? "Status encontrado" : "Status NÃO encontrado");
+
+if (btn) {
+    btn.onclick = function () {
+        alert("BOTÃO CLICADO ❤️");
+    };
 }
