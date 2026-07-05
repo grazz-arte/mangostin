@@ -40,7 +40,7 @@ document.getElementById("btn").addEventListener("click", async () => {
     alert("TOKEN:\n\n" + token);
     console.log(token);
 
-} catch (err) {
+} }catch (err) {
 
     console.error("ERRO COMPLETO:", err);
 
