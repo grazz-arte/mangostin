@@ -6,13 +6,44 @@ const firebaseConfig = {
   messagingSenderId: "542635383072",
   appId: "1:542635383072:web:ef298991b3270a48301f45"
 };
+let deferredPrompt = null;
 
+const installBtn = document.getElementById("installBtn");
 firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 
 const status = document.getElementById("status");
+window.addEventListener("beforeinstallprompt", (e) => {
 
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+    installBtn.style.display = "block";
+
+    console.log("Mangostin pode ser instalado");
+
+});
+
+installBtn.addEventListener("click", async () => {
+
+    if (!deferredPrompt) {
+        alert("Instalação não disponível neste dispositivo.");
+        return;
+    }
+
+    deferredPrompt.prompt();
+
+    const result = await deferredPrompt.userChoice;
+
+    console.log("Resultado:", result.outcome);
+
+    deferredPrompt = null;
+
+    installBtn.style.display = "none";
+
+});
 document.getElementById("btn").addEventListener("click", async () => {
   try {
 
