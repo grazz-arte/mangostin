@@ -32,7 +32,7 @@ document.getElementById("btn").addEventListener("click", async () => {
       vapidKey: "BFEUL8kBM5TZhjMaT5eJXmEoiTs4uBBeiphiHKjRGrwD7ocV6RCXsWBjE15Te6sv4OdMOh2WOG79rbpqtN62UeI",
       serviceWorkerRegistration: registration
     });
-await fetch(
+const response = await fetch(
   "https://func-mangostin-g2etanh5csc7brbp.brazilsouth-01.azurewebsites.net/api/registertoken",
   {
     method: "POST",
@@ -44,6 +44,11 @@ await fetch(
     })
   }
 );
+
+console.log("STATUS:", response.status);
+
+const data = await response.text();
+console.log("RESPOSTA:", data);
     console.log("TOKEN FCM:", token);
 
 status.innerHTML = `
