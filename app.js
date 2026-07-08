@@ -104,3 +104,11 @@ ${token}
     status.innerText = "❌ Erro ao ativar notificações";
   }
 });
+console.log("Manifest encontrado:",
+    document.querySelector('link[rel="manifest"]'));
+
+console.log("Standalone:",
+    window.matchMedia('(display-mode: standalone)').matches);
+
+console.log("ServiceWorker:",
+    navigator.serviceWorker);
