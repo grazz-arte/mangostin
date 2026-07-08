@@ -381,11 +381,6 @@ const seconds = Math.floor(
         setInterval(updateCounter, 1000);
         createPetals(100);
     </script>
-<!-- ===========INSTALAR======== -->
-
-<button id="installBtn" style="display:none;">
-📲 Instalar Mangostin
-</button>
 
 <!-- PUSH NOTIFICATIONS -->
 <!-- ============================= -->
@@ -395,36 +390,47 @@ const seconds = Math.floor(
     <h2 class="text-center text-2xl text-white mb-6">
         📲 Mangostin Push
     </h2>
-
     <div style="text-align:center;">
 
-        <button
-            id="btn"
-            style="
-                padding:15px 30px;
-                font-size:18px;
-                border:none;
-                border-radius:12px;
-                background:#8c52ff;
-                color:white;
-                cursor:pointer;
-            ">
+  <button  
+        id="btn"  
+        style="  
+            padding:15px 30px;  
+            font-size:18px;  
+            border:none;  
+            border-radius:12px;  
+            background:#8c52ff;  
+            color:white;  
+            cursor:pointer;  
+        ">
+       🔔 Ativar Notificações
+    </button>
 
-            Ativar Notificações
+    <br><br>
 
-        </button>
+    <button
+        id="installBtn"
+        style="
+            display:none;
+            padding:15px 30px;
+            font-size:18px;
+            border:none;
+            border-radius:12px;
+            background:#00b894;
+            color:white;
+            cursor:pointer;
+        ">
+        🔮 Instalar Mangostin
+    </button>
 
-        <p
-            id="status"
-            class="text-cyan-100"
-            style="margin-top:20px;">
+    <p
+        id="status"
+        class="text-cyan-100"
+        style="margin-top:20px;">
+        Aguardando...
+    </p>
 
-            Aguardando...
-
-        </p>
-
-    </div>
-
+</div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
