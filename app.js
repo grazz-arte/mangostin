@@ -9,11 +9,14 @@ const firebaseConfig = {
 let deferredPrompt = null;
 
 const installBtn = document.getElementById("installBtn");
+console.log("InstallBtn:", installBtn);
+
 firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 
 const status = document.getElementById("status");
+
 window.addEventListener("beforeinstallprompt", (e) => {
 
     e.preventDefault();
@@ -23,6 +26,14 @@ window.addEventListener("beforeinstallprompt", (e) => {
     installBtn.style.display = "block";
 
     console.log("Mangostin pode ser instalado");
+
+});
+
+window.addEventListener("appinstalled", () => {
+
+    console.log("Mangostin instalado ❤️");
+
+    installBtn.style.display = "none";
 
 });
 
