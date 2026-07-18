@@ -77,6 +77,9 @@ document.getElementById("btn").addEventListener("click", async () => {
 
 const savedToken = localStorage.getItem("fcmToken");
 
+console.log("Token atual:", token);
+console.log("Token salvo:", savedToken);
+
 if (savedToken !== token) {
 
     console.log("Token novo detectado");
@@ -89,12 +92,15 @@ if (savedToken !== token) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: token
+                token
             })
         }
     );
 
     console.log("STATUS:", response.status);
+
+    const data = await response.text();
+    console.log("RESPOSTA:", data);
 
     localStorage.setItem("fcmToken", token);
 
@@ -103,18 +109,10 @@ if (savedToken !== token) {
     console.log("Token já cadastrado");
 
 }
-console.log("STATUS:", response.status);
 
-const data = await response.text();
-console.log("RESPOSTA:", data);
-    console.log("TOKEN FCM:", token);
+console.log("TOKEN FCM:", token);
 
-status.innerHTML = `
-✅ Token gerado<br><br>
-<textarea style="width:100%;height:120px;">
-${token}
-</textarea>
-`;
+status.innerHTML = "✅ Notificações ativadas";
   } catch (err) {
     console.error(err);
     status.innerText = "❌ Erro ao ativar notificações";
