@@ -103,19 +103,6 @@ if (savedToken !== token) {
     console.log("Token já cadastrado");
 
 }
-const response = await fetch(
-  "https://func-mangostin-g2etanh5csc7brbp.brazilsouth-01.azurewebsites.net/api/registertoken",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      token: token
-    })
-  }
-);
-
 console.log("STATUS:", response.status);
 
 const data = await response.text();
