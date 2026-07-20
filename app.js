@@ -76,7 +76,7 @@ document.getElementById("btn").addEventListener("click", async () => {
 });
 
 const savedToken = localStorage.getItem("fcmToken");
-
+localStorage.removeItem("fcmToken");
 console.log("Token atual:", token);
 console.log("Token salvo:", savedToken);
 
