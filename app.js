@@ -92,8 +92,9 @@ if (savedToken !== token) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token
-            })
+    token: token,
+    userAgent: navigator.userAgent
+})
         }
     );
 
