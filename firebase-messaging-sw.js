@@ -10,26 +10,6 @@ firebase.initializeApp({
   appId: "1:542635383072:web:ef298991b3270a48301f45"
 });
 
-const messaging = firebase.messaging();
-
-messaging.onBackgroundMessage((payload) => {
-
-  console.log("Mensagem recebida em background:", payload);
-
-  const notificationTitle =
-    payload.notification?.title || "Mangostin";
-
-  const notificationOptions = {
-    body: payload.notification?.body || "",
-    icon: "https://grazz-arte.github.io/mangostin/icon-192.png",
-    badge: "https://grazz-arte.github.io/mangostin/icon-192.png",
-    requireInteraction: true
-  };
-
-  self.registration.showNotification(
-    notificationTitle,
-    notificationOptions
-  );
-});
+firebase.messaging();
 
 console.log("Firebase SW carregado");
