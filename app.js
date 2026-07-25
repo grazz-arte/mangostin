@@ -65,8 +65,11 @@ document.getElementById("btn").addEventListener("click", async () => {
       return;
     }
 
-    const registration = await navigator.serviceWorker.register(
-      "./firebase-messaging-sw.js"
+    let registration = await navigator.serviceWorker.getRegistration();
+
+if (!registration) {
+    registration = await navigator.serviceWorker.register(
+"./firebase-messaging-sw.js"
     );
 
     // AQUI entra a VAPID KEY
@@ -74,9 +77,8 @@ document.getElementById("btn").addEventListener("click", async () => {
   vapidKey: "BFEUL8kBM5TZhjMaT5eJXmEoiTs4uBBeiphiHKjRGrwD7ocV6RCXsWBjE15Te6sv4OdMOh2WOG79rbpqtN62UeI",
   serviceWorkerRegistration: registration
 });
-
+await registration.update();
 const savedToken = localStorage.getItem("fcmToken");
-localStorage.removeItem("fcmToken");
 console.log("Token atual:", token);
 console.log("Token salvo:", savedToken);
 
