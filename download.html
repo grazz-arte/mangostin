@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Baixar Mangostin</title>
+
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#78f0d6">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+
+background:#090909;
+color:white;
+font-family:Arial,Helvetica,sans-serif;
+
+}
+
+.card{
+
+max-width:450px;
+margin:auto;
+margin-top:35px;
+padding:25px;
+
+background:#171717;
+
+border-radius:22px;
+
+box-shadow:0 0 25px rgba(120,240,214,.18);
+
+}
+
+.logo{
+
+width:120px;
+
+margin:auto;
+
+display:block;
+
+border-radius:30px;
+
+}
+
+.install{
+
+width:100%;
+
+padding:18px;
+
+margin-top:25px;
+
+font-size:20px;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:16px;
+
+background:#78f0d6;
+
+color:#111;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.install:hover{
+
+transform:scale(1.03);
+
+}
+
+.item{
+
+padding:8px 0;
+
+font-size:17px;
+
+}
+
+.small{
+
+opacity:.75;
+
+font-size:14px;
+
+text-align:center;
+
+margin-top:25px;
+
+}
+
+.status{
+
+margin-top:20px;
+
+text-align:center;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="./icon-512.png" class="logo">
+
+<h1 class="text-3xl text-center mt-4 font-bold">
+
+🥭 Mangostin
+
+</h1>
+
+<p class="text-center mt-2">
+
+Cada dia mais, cada minuto mais,<br>
+
+cada segundo mais ❤️
+
+</p>
+
+<div class="mt-6">
+
+<div class="item">⭐⭐⭐⭐⭐ 5,0</div>
+
+<div class="item">📲 Aplicativo oficial</div>
+
+<div class="item">🔔 Notificações em tempo real</div>
+
+<div class="item">⚡ Funciona Offline</div>
+
+<div class="item">🔄 Atualizações automáticas</div>
+
+</div>
+
+<button id="installBtn" class="install">
+
+Instalar App
+
+</button>
+
+<div id="status" class="status"></div>
+
+<hr class="my-8">
+
+<h2 class="text-xl font-bold">
+
+Como instalar
+
+</h2>
+
+<p class="mt-3">
+
+<b>Android</b>
+
+<br><br>
+
+1️⃣ Toque em <b>Instalar App</b>
+
+<br>
+
+2️⃣ Confirme
+
+<br>
+
+3️⃣ Aproveite ❤️
+
+</p>
+
+<p class="mt-6">
+
+<b>iPhone</b>
+
+<br><br>
+
+Compartilhar →
+
+Adicionar à Tela Inicial
+
+</p>
+
+<div class="small">
+
+Versão 1.0
+
+<br>
+
+Desenvolvido com ❤️ por Grazz
+
+</div>
+
+</div>
+
+<script>
+
+let deferredPrompt;
+
+const btn=document.getElementById("installBtn");
+
+const status=document.getElementById("status");
+
+window.addEventListener("beforeinstallprompt",(e)=>{
+
+e.preventDefault();
+
+deferredPrompt=e;
+
+btn.style.display="block";
+
+});
+
+btn.onclick=async()=>{
+
+if(!deferredPrompt){
+
+alert("A instalação ainda não está disponível neste navegador.");
+
+return;
+
+}
+
+deferredPrompt.prompt();
+
+const result=await deferredPrompt.userChoice;
+
+if(result.outcome==="accepted"){
+
+status.innerHTML="❤️ Instalando Mangostin...";
+
+}else{
+
+status.innerHTML="Instalação cancelada.";
+
+}
+
+deferredPrompt=null;
+
+};
+
+if(window.matchMedia("(display-mode: standalone)").matches){
+
+btn.style.display="none";
+
+status.innerHTML="✅ Mangostin já está instalado";
+
+}
+
+</script>
+
+</body>
+
+</html>
