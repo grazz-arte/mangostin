@@ -11,10 +11,14 @@ let deferredPrompt = null;
 const installBtn = document.getElementById("installBtn");
 console.log("InstallBtn:", installBtn);
 
-firebase.initializeApp(firebaseConfig);
+function iniciarFirebase() {
 
-const messaging = firebase.messaging();
+    firebase.initializeApp(firebaseConfig);
 
+    return firebase.messaging();
+
+}
+const messaging = iniciarFirebase();
 const status = document.getElementById("status");
 
 window.addEventListener("beforeinstallprompt", (e) => {
@@ -82,10 +86,10 @@ if (!registration) {
 await navigator.serviceWorker.ready;
 
 const token = await messaging.getToken({
-console.log("Token recebido:", token);
   vapidKey: "BFEUL8kBM5TZhjMaT5eJXmEoiTs4uBBeiphiHKjRGrwD7ocV6RCXsWBjE15Te6sv4OdMOh2WOG79rbpqtN62UeI",
   serviceWorkerRegistration: registration
 });
+console.log("Token recebido:", token);
 const savedToken = localStorage.getItem("fcmToken");
 console.log("Token atual:", token);
 console.log("Token salvo:", savedToken);
