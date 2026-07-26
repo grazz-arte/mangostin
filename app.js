@@ -55,10 +55,14 @@ installBtn.addEventListener("click", async () => {
     installBtn.style.display = "none";
 
 });
-document.getElementById("btn").addEventListener("click", async () => {
-  try {
+console.log("Botão encontrado:", document.getElementById("btn"));
 
-    const permission = await Notification.requestPermission();
+document.getElementById("btn").addEventListener("click", async () => {
+
+    console.log("CLIQUE FUNCIONOU");
+
+    try {
+const permission = await Notification.requestPermission();
 console.log("Permissão:", permission);
 
     if (permission !== "granted") {
