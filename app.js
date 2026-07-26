@@ -20,45 +20,49 @@ function iniciarFirebase() {
 }
 const messaging = iniciarFirebase();
 const status = document.getElementById("status");
+function configurarInstalacao() {
 
-window.addEventListener("beforeinstallprompt", (e) => {
+    window.addEventListener("beforeinstallprompt", (e) => {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    deferredPrompt = e;
+        deferredPrompt = e;
 
-    installBtn.style.display = "block";
+        installBtn.style.display = "block";
 
-    console.log("Mangostin pode ser instalado");
+        console.log("Mangostin pode ser instalado");
 
-});
+    });
 
-window.addEventListener("appinstalled", () => {
+    window.addEventListener("appinstalled", () => {
 
-    console.log("Mangostin instalado ❤️");
+        console.log("Mangostin instalado ❤️");
 
-    installBtn.style.display = "none";
+        installBtn.style.display = "none";
 
-});
+    });
 
-installBtn.addEventListener("click", async () => {
+    installBtn.addEventListener("click", async () => {
 
-    if (!deferredPrompt) {
-        alert("Instalação não disponível neste dispositivo.");
-        return;
-    }
+        if (!deferredPrompt) {
+            alert("Instalação não disponível neste dispositivo.");
+            return;
+        }
 
-    deferredPrompt.prompt();
+        deferredPrompt.prompt();
 
-    const result = await deferredPrompt.userChoice;
+        const result = await deferredPrompt.userChoice;
 
-    console.log("Resultado:", result.outcome);
+        console.log("Resultado:", result.outcome);
 
-    deferredPrompt = null;
+        deferredPrompt = null;
 
-    installBtn.style.display = "none";
+        installBtn.style.display = "none";
 
-});
+    });
+
+}
+configurarInstalacao();
 console.log("Botão encontrado:", document.getElementById("btn"));
 
 document.getElementById("btn").addEventListener("click", async () => {
