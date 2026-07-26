@@ -69,11 +69,13 @@ document.getElementById("btn").addEventListener("click", async () => {
 
 if (!registration) {
     registration = await navigator.serviceWorker.register(
-"./firebase-messaging-sw.js"
+        "./firebase-messaging-sw.js"
     );
+}
 
-    // AQUI entra a VAPID KEY
-    const token = await messaging.getToken({
+await registration.update();
+
+const token = await messaging.getToken({
   vapidKey: "BFEUL8kBM5TZhjMaT5eJXmEoiTs4uBBeiphiHKjRGrwD7ocV6RCXsWBjE15Te6sv4OdMOh2WOG79rbpqtN62UeI",
   serviceWorkerRegistration: registration
 });
