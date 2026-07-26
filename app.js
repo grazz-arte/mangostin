@@ -59,6 +59,7 @@ document.getElementById("btn").addEventListener("click", async () => {
   try {
 
     const permission = await Notification.requestPermission();
+console.log("Permissão:", permission);
 
     if (permission !== "granted") {
       status.innerText = "❌ Permissão negada";
@@ -66,6 +67,7 @@ document.getElementById("btn").addEventListener("click", async () => {
     }
 
     let registration = await navigator.serviceWorker.getRegistration();
+console.log("Registration:", registration);
 
 if (!registration) {
     registration = await navigator.serviceWorker.register(
@@ -73,13 +75,13 @@ if (!registration) {
     );
 }
 
-await registration.update();
+await navigator.serviceWorker.ready;
 
 const token = await messaging.getToken({
+console.log("Token recebido:", token);
   vapidKey: "BFEUL8kBM5TZhjMaT5eJXmEoiTs4uBBeiphiHKjRGrwD7ocV6RCXsWBjE15Te6sv4OdMOh2WOG79rbpqtN62UeI",
   serviceWorkerRegistration: registration
 });
-await registration.update();
 const savedToken = localStorage.getItem("fcmToken");
 console.log("Token atual:", token);
 console.log("Token salvo:", savedToken);
